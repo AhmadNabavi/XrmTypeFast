@@ -1,0 +1,93 @@
+>> Create project directory
+>> Open it in VSCode
+>> npm init
+>> npm install typescript
+>> Add src and dist directories to main directory -> Add index.ts file in src and index.ts file in dist
+>> npx tsc -init
+
+{
+  "compilerOption": {
+    "module": "es2016",
+    "rootDir": "src",
+    "sourceMap": true
+  }
+}
+
+>> npm install webpack webpack-cli webpack-merge ts-loader --save-dev
+
+1- webpack.dev.js
+2- webpack.prod.js
+
+
+For 1 paste:
+-------------
+const path = require('path');
+const { merge } = require("webpack-merge");
+
+module.exports = merge({
+    entry: './src/index.ts',
+    module: {
+        rules: [
+            {
+                test: /\.tsx?$/,
+                use: "ts-loader",
+                exclude: /node_modules/,
+            },
+        ],
+    },
+    resolve: {
+        extensions: [".ts"],
+    },
+    output: {
+        filename: 'index.js',
+        path: path.resolve(__dirname, 'dist'),
+        library: ["ClientJS"],
+        libraryTarget: "var",
+    },
+}, {
+    mode: "development",
+    devtool: "eval-source-map"
+});
+
+For 2 paste:
+-------------
+const path = require('path');
+const { merge } = require("webpack-merge");
+
+module.exports = merge({
+    entry: './src/index.ts',
+    module: {
+        rules: [
+            {
+                test: /\.tsx?$/,
+                use: "ts-loader",
+                exclude: /node_modules/,
+            },
+        ],
+    },
+    resolve: {
+        extensions: [".ts"],
+    },
+    output: {
+        filename: 'index.js',g
+        path: path.resolve(__dirname, 'dist'),
+        library: ["ClientJS"],
+        libraryTarget: "var",
+    },g
+}, {
+    mode: "production"
+});
+
+"scripts": {    
+	"build": "npx webpack --config webpack.dev.js",
+	"dist": "npx webpack --config webpack.prod.js"
+
+>> npm run-script build
+   npm run-script dist
+>> npm install --save-dev @types/xrm
+
+----------------------------------------------------------
+In VS App.config file, add the following tags:
+<appSettings>
+	<add key="WebapiVersion" value="v9.1" />
+</appSettings>
