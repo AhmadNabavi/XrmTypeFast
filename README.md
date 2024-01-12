@@ -6,7 +6,7 @@ XrmTypeFast is composed of two main components: XrmTypeExtraction & XrmClientSer
 	2) XrmClientService is a TypeScript Class file which acts similare to IOrganizationServiceProxy in the XrmSDK so that it handles all CRUD operations in the C# style
 
 Main benefit of using XrmTypeFast:
-1- Type Safety: What is missing in JS is type safetey. By using Typescript language, XrmTypeFast will ensure type safety of variables /n
+1- Type Safety: What is missing in JS is type safetey. By using Typescript language, XrmTypeFast will ensure type safety of variables
 2- Fast typing: Types creatd can enable early-binding. Also, the C# style of coding the JS is very handy
 3- Releive you from the pain of dealing with @odata.bind and _xyz_value stuf
 4- Easy Async Await operation: No more chaining multiple server requests! Just await the first, then await the second, ...
