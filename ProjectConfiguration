@@ -78,9 +78,10 @@ module.exports = merge({
     mode: "production"
 });
 
-"scripts": {    
-	"build": "npx webpack --config webpack.dev.js",
-	"dist": "npx webpack --config webpack.prod.js"
+>> In package.json file, replalce scripts with the following:
+	"scripts": {    
+		"build": "npx webpack --config webpack.dev.js",
+		"dist": "npx webpack --config webpack.prod.js"
 
 >> npm run-script build
    npm run-script dist
