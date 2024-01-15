@@ -1,3 +1,4 @@
+------------------------ Projcet Configurations ------------------------
 >> Create project directory
 >> Open it in VSCode
 >> npm init
@@ -69,26 +70,34 @@ module.exports = merge({
         extensions: [".ts"],
     },
     output: {
-        filename: 'index.js',g
+        filename: 'index.js',
         path: path.resolve(__dirname, 'dist'),
         library: ["ClientJS"],
         libraryTarget: "var",
-    },g
+    },
 }, {
     mode: "production"
 });
 
 >> In package.json file, replalce scripts with the following:
-	"scripts": {    
+	"scripts": {
 		"build": "npx webpack --config webpack.dev.js",
 		"dist": "npx webpack --config webpack.prod.js"
+	},
 
 >> npm run-script build
    npm run-script dist
 >> npm install --save-dev @types/xrm
 
-----------------------------------------------------------
-In VS App.config file, add the following tags:
+------------------------ XrmTypeFast Configurations ------------------------
+>> In the "Manage Nuget Packages" of your VS project, look for the folowing .dll and install it:
+	XrmTypeExtraction
+
+>> In App.config file of your VS project, add the following tags:
 <appSettings>
 	<add key="WebapiVersion" value="v9.1" />
 </appSettings>
+
+>> In VSCode: npm install xrmclientservice
+>> Move XrmClientService to the "./src" folder, and within this file set the version of webApiVersion variable to your environment's version of Odata API:
+	static webApiVersion: string = "v9.1";
